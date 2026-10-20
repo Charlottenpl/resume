@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>陈重友 · 简历</title>
+<meta name="description" content="陈重友 · 移动端开发工程师 · 发行 SDK 与跨端开发">
+<style>
+  :root {
+    --bg: #f3f4f6;
+    --paper: #ffffff;
+    --ink: #1c2330;
+    --ink-2: #4a5466;
+    --ink-3: #7b8597;
+    --line: #e3e6eb;
+    --accent: #2f56c9;
+    --accent-soft: #edf1fc;
+    --chip-bg: #f1f3f6;
+    --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 12px 32px rgba(16, 24, 40, .07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1116;
+      --paper: #161a21;
+      --ink: #e6e9ef;
+      --ink-2: #b2bac8;
+      --ink-3: #848ea0;
+      --line: #2a303a;
+      --accent: #8da7ff;
+      --accent-soft: #1e263b;
+      --chip-bg: #212732;
+      --shadow: 0 0 0 1px #232934;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e1116;
+    --paper: #161a21;
+    --ink: #e6e9ef;
+    --ink-2: #b2bac8;
+    --ink-3: #848ea0;
+    --line: #2a303a;
+    --accent: #8da7ff;
+    --accent-soft: #1e263b;
+    --chip-bg: #212732;
+    --shadow: 0 0 0 1px #232934;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 15px/1.75 -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+          "Microsoft YaHei", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--accent); }
+  strong { font-weight: 600; color: var(--ink); }
+
+  .resume {
+    max-width: 880px;
+    margin: 40px auto 80px;
+    padding: 56px 64px;
+    background: var(--paper);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+  }
+
+  /* 头部：姓名 + 个人信息，右侧照片 */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "name photo"
+      "info photo";
+    gap: 0 40px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero h1 {
+    grid-area: name;
+    margin: 0 0 18px;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: .08em;
+  }
+  .info {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 32px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+  }
+  .info li { display: flex; gap: 12px; min-width: 0; }
+  .info .k { flex: none; width: 4.5em; color: var(--ink-3); }
+  .info .v { min-width: 0; overflow-wrap: anywhere; }
+
+  /* 照片位：同目录放 photo.jpg 即显示，否则显示占位框 */
+  .photo {
+    grid-area: photo;
+    position: relative;
+    width: 112px;
+    aspect-ratio: 5 / 7;
+    align-self: start;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--chip-bg);
+  }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .photo.empty { border: 1px dashed var(--ink-3); }
+  .photo .placeholder {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: var(--ink-3);
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+  }
+  .photo.empty .placeholder { display: flex; }
+  .photo .placeholder svg { width: 28px; height: 28px; margin-bottom: 2px; }
+  .photo .placeholder small { font-size: 11px; padding: 0 6px; }
+
+  /* 分区 */
+  section { margin-top: 36px; }
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 16px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    color: var(--accent);
+  }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+  }
+  h3 { margin: 0; font-size: 17px; font-weight: 600; }
+  h3 .h3-sub { font-weight: 400; color: var(--ink-2); }
+  .meta { font-size: 14px; color: var(--ink-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .sub { margin: 4px 0 10px; color: var(--ink-2); }
+  .sub:last-child { margin-bottom: 0; }
+
+  ul.points { margin: 0; padding-left: 1.1em; }
+  ul.points li { margin: 6px 0; }
+  ul.points li::marker { color: var(--accent); }
+
+  /* 项目 */
+  .project { padding: 22px 0; border-top: 1px dashed var(--line); }
+  .project:first-of-type { padding-top: 4px; border-top: 0; }
+  .project-head { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; }
+  .tag {
+    font-size: 12px;
+    line-height: 20px;
+    padding: 0 8px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--ink-3);
+  }
+  .tag.company { border-color: transparent; background: var(--accent-soft); color: var(--accent); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 12px; padding: 0; list-style: none; }
+  .chip {
+    font-size: 12px;
+    line-height: 22px;
+    padding: 0 8px;
+    border-radius: 6px;
+    background: var(--chip-bg);
+    color: var(--ink-2);
+  }
+
+  dl.rows {
+    display: grid;
+    grid-template-columns: 3em 1fr;
+    gap: 6px 14px;
+    margin: 0;
+  }
+  dl.rows dt { font-size: 14px; color: var(--ink-3); line-height: 1.75rem; }
+  dl.rows dd { margin: 0; }
+  dl.rows dd ul { margin: 0; padding-left: 1.1em; }
+  dl.rows dd li { margin: 2px 0; }
+  dl.rows dd li::marker { color: var(--accent); }
+
+  dl.skills { grid-template-columns: 6em 1fr; gap: 10px 14px; align-items: center; }
+  dl.skills dt { line-height: 1.5; }
+  dl.skills dd ul.chips { margin: 0; padding-left: 0; }
+
+  /* 导出按钮 */
+  .print-btn {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--paper);
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(47, 86, 201, .3);
+  }
+  .print-btn svg { width: 16px; height: 16px; }
+  .print-btn:hover { filter: brightness(1.08); }
+  .print-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  @media (max-width: 720px) {
+    .resume { margin: 0 0 72px; padding: 32px 16px; border-radius: 0; box-shadow: none; }
+    .hero {
+      grid-template-areas:
+        "name photo"
+        "info info";
+      gap: 0 16px;
+    }
+    .hero h1 { align-self: center; margin: 0; font-size: 30px; }
+    .info { grid-template-columns: 1fr; margin-top: 20px; }
+    .photo { width: 88px; }
+    .print-btn { right: 16px; bottom: 16px; }
+  }
+  @media (max-width: 520px) {
+    dl.rows, dl.skills { grid-template-columns: 1fr; gap: 0; }
+    dl.rows dt { margin-top: 8px; }
+    dl.rows dt:first-child { margin-top: 0; }
+    dl.skills dd { margin-bottom: 6px; }
+  }
+
+  /* 打印 / 导出 PDF：固定浅色、A4 版面 */
+  @page { size: A4; margin: 14mm 15mm; }
+  @media print {
+    :root:not([data-print]) {
+      --bg: #fff;
+      --paper: #fff;
+      --ink: #1c2330;
+      --ink-2: #3f4858;
+      --ink-3: #6b7486;
+      --line: #dfe2e8;
+      --accent: #2f56c9;
+      --accent-soft: #eef2fc;
+      --chip-bg: #f1f3f6;
+    }
+    body { font-size: 10.5pt; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .resume { max-width: none; margin: 0; padding: 0; border-radius: 0; box-shadow: none; }
+    .print-btn, .photo.empty { display: none; }
+    section { margin-top: 22px; }
+    .project { padding: 14px 0; }
+    .hero, .entry, .project { break-inside: avoid; }
+    h2 { break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<main class="resume">
+
+  <header class="hero">
+    <h1>陈重友</h1>
+    <ul class="info" aria-label="个人信息">
+      <li><span class="k">求职意向</span><span class="v">移动端开发工程师</span></li>
+      <li><span class="k">期望城市</span><span class="v">北京</span></li>
+      <li><span class="k">工作年限</span><span class="v">4 年</span></li>
+      <li><span class="k">学历</span><span class="v">本科 · 软件工程</span></li>
+      <li><span class="k">电话</span><span class="v"><a href="tel:18831107935">188 3110 7935</a></span></li>
+      <li><span class="k">邮箱</span><span class="v"><a href="mailto:charlotteplczy@gmail.com">charlotteplczy@gmail.com</a></span></li>
+      <li><span class="k">GitHub</span><span class="v"><a href="https://github.com/Charlottenpl" target="_blank" rel="noopener">github.com/Charlottenpl</a></span></li>
+      <!-- 需要时取消注释并填写：
+      <li><span class="k">性别</span><span class="v">【】</span></li>
+      <li><span class="k">出生年月</span><span class="v">【】</span></li>
+      <li><span class="k">到岗时间</span><span class="v">【】</span></li>
+      -->
+    </ul>
+    <!-- 照片：把照片命名为 photo.jpg，放在本文件同目录即可显示（建议 5:7 竖版证件照） -->
+    <div class="photo">
+      <img src="photo.jpg" alt="陈重友的照片" onerror="this.parentNode.classList.add('empty'); this.remove();">
+      <div class="placeholder" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        照片
+        <small>photo.jpg</small>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>教育背景</h2>
+    <article class="entry">
+      <div class="entry-head">
+        <h3>河北师范大学 <span class="h3-sub">· 软件工程 · 本科</span></h3>
+        <span class="meta">2017.09 – 2022.06</span>
+      </div>
+      <p class="sub">主修课程：数据结构、操作系统、计算机网络、数据库原理</p>
+    </article>
+  </section>
+
+  <section>
+    <h2>工作经历</h2>
+    <article class="entry">
+      <div class="entry-head">
+        <h3>北京攸乐科技有限公司 <span class="h3-sub">· 移动端开发工程师</span></h3>
+        <span class="meta">2022.03 – 至今</span>
+      </div>
+      <p class="sub">负责公司线上游戏项目的发行系统移动端开发与维护。</p>
+      <ul class="points">
+        <li><strong>发行 SDK 开发与维护：</strong>主导海外发行 SDK（ZeusSDK）的开发与版本迭代，负责账号、支付、客服、推送等功能和 Facebook、Google、微信、支付宝等三方渠道接入，支持 Android、iOS、Unity、Cocos Creator、Windows 多平台，覆盖近千万用户；任职期间提交 1400+ 次，为仓库贡献最多的开发者。</li>
+        <li><strong>SDK 架构重构：</strong>主导新一代 SDK（Echo）重构，基于 Kotlin 协程重新设计 Android 端架构，将登录、支付等渠道拆为可插拔模块，接入方按需集成，降低接入成本和包体积。</li>
+        <li><strong>质量保障与发布流程：</strong>搭建 SDK 配套的 UI 自动化测试流程，通过 Jenkins 定时执行测试并生成报告，纳入版本发布流程，提升线上稳定性。</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>项目经历</h2>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>Photo Geopro</h3>
+        <span class="tag">个人项目</span>
+      </div>
+      <ul class="chips"><li class="chip">iOS</li><li class="chip">Swift</li><li class="chip">EXIF / GPS</li><li class="chip">App Store</li></ul>
+      <dl class="rows">
+        <dt>背景</dt>
+        <dd>多数相机和运动相机没有 GPS 模块，拍出的照片不带定位，无法在相册地图中展示。为此独立开发了这款 iOS 应用，为主流品牌相机拍摄的照片补写 GPS 定位。</dd>
+        <dt>职责</dt>
+        <dd>明确需求、开发 App，并完成在 App Store 的上架和营销工作。</dd>
+        <dt>成果</dt>
+        <dd>
+          <ul>
+            <li>解决了相机、运动相机照片缺少定位的问题，补写后的照片可在 NAS、系统相册等地图视图中按行程展示，且不影响原图画质。</li>
+            <li>适配佳能、尼康、索尼等主流品牌相机的 JPEG、HEIF 和 RAW 格式。</li>
+            <li>已上架 App Store。</li>
+          </ul>
+        </dd>
+      </dl>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>LitchiMini</h3>
+        <span class="tag">个人项目</span>
+      </div>
+      <ul class="chips"><li class="chip">微信小程序</li><li class="chip">Go</li><li class="chip">PostgreSQL</li><li class="chip">Vue 3</li><li class="chip">微信支付</li></ul>
+      <dl class="rows">
+        <dt>背景</dt>
+        <dd>为自习室提供线上订座服务，由微信小程序端、服务端和管理端三部分组成。</dd>
+        <dt>职责</dt>
+        <dd>个人独立完成需求设计、三端开发和部署上线。</dd>
+        <dt>成果</dt>
+        <dd>
+          <ul>
+            <li>已上线运营，用户可在小程序内完成选座、预订和支付。</li>
+            <li>独立完成小程序、服务端、管理端三端开发。</li>
+          </ul>
+        </dd>
+      </dl>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>EchoStar</h3>
+        <span class="tag">个人项目</span>
+      </div>
+      <ul class="chips"><li class="chip">Go (Gin)</li><li class="chip">PostgreSQL</li><li class="chip">Redis</li><li class="chip">Vue 3</li><li class="chip">KMM</li></ul>
+      <dl class="rows">
+        <dt>背景</dt>
+        <dd>个人开发的多个项目都需要账号、支付、客服等基础功能和线上服务。为避免重复建设，开发了这套平台，为多个项目统一提供基础服务和独立的数据分析平台。</dd>
+        <dt>职责</dt>
+        <dd>独立完成架构设计和全部开发：服务端基于 Go（Gin）+ PostgreSQL + Redis，管理后台基于 Vue 3，接入 SDK 基于 KMM。</dd>
+        <dt>成果</dt>
+        <dd>
+          <ul>
+            <li>上线了一套可同时服务国内和海外项目的服务端，统一提供账号、支付、客服等基础服务和数据分析能力。</li>
+            <li>基于 KMM 开发跨端接入 SDK，支持 Android、iOS、Web、小程序和 PC 端。</li>
+          </ul>
+        </dd>
+      </dl>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>ZeusSDK</h3>
+        <span class="tag company">公司项目</span>
+      </div>
+      <ul class="chips"><li class="chip">Android</li><li class="chip">iOS</li><li class="chip">Unity</li><li class="chip">Cocos Creator</li><li class="chip">Windows</li><li class="chip">Kotlin 协程</li></ul>
+      <dl class="rows">
+        <dt>背景</dt>
+        <dd>公司面向海外发行的游戏发行 SDK，为游戏提供账号、支付、客服、推送、第三方平台和数据分析等能力，支持 Android、iOS、Unity、Cocos Creator 和 Windows 多平台接入。</dd>
+        <dt>职责</dt>
+        <dd>主导 SDK 的开发与维护，负责功能开发、三方渠道接入和版本发布，目前主导新一代 SDK（Echo）的重构。</dd>
+        <dt>亮点</dt>
+        <dd>基于 Kotlin 协程重新设计 Android 端架构，支持模块化集成，跨平台设计。</dd>
+        <dt>成果</dt>
+        <dd>SDK 已迭代至 3.x 版本，覆盖近千万用户。</dd>
+      </dl>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>AutoUI</h3>
+        <span class="tag company">公司项目</span>
+      </div>
+      <ul class="chips"><li class="chip">Appium</li><li class="chip">pytest</li><li class="chip">Airtest + Poco</li><li class="chip">Jenkins</li></ul>
+      <dl class="rows">
+        <dt>背景</dt>
+        <dd>为规范 ZeusSDK 的版本发布流程、提高线上稳定性，开发了配套的 UI 自动化测试流程，定时运行测试并生成测试报告。</dd>
+        <dt>职责</dt>
+        <dd>负责搭建测试流程：基于 Appium + pytest 测试原生 Demo，基于 Airtest + Poco 测试 Unity / Cocos 引擎 Demo，覆盖 Android 和 iOS；通过 Jenkins 串联打包、安装、测试和报告生成。</dd>
+        <dt>成果</dt>
+        <dd>
+          <ul>
+            <li>覆盖登录、账号创建 / 切换 / 绑定 / 删除、三方登录、分享、支付、推送等 SDK 核心流程，测试结果自动生成 HTML 报告。</li>
+            <li>自动化测试纳入版本发布流程。</li>
+          </ul>
+        </dd>
+      </dl>
+    </article>
+  </section>
+
+  <section>
+    <h2>专业技能</h2>
+    <dl class="rows skills">
+      <dt>编程语言</dt>
+      <dd><ul class="chips"><li class="chip">Kotlin</li><li class="chip">Objective-C</li><li class="chip">Swift</li><li class="chip">TypeScript</li><li class="chip">Python</li></ul></dd>
+      <dt>框架 / 工具</dt>
+      <dd><ul class="chips"><li class="chip">Kotlin Multiplatform</li><li class="chip">Unity</li><li class="chip">Cocos</li></ul></dd>
+      <dt>AI 工作流</dt>
+      <dd><ul class="chips"><li class="chip">Claude</li><li class="chip">Codex</li></ul></dd>
+      <dt>工程实践</dt>
+      <dd><ul class="chips"><li class="chip">Git</li><li class="chip">Docker</li><li class="chip">CI/CD</li><li class="chip">单元测试</li></ul></dd>
+      <dt>代码规范</dt>
+      <dd>了解基础的设计模式</dd>
+    </dl>
+  </section>
+
+</main>
+
+<button class="print-btn" type="button" onclick="window.print()" title="打印或另存为 PDF">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+  导出 PDF
+</button>
+</body>
+</html>
