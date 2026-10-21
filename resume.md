@@ -12,7 +12,7 @@
 
 【求职意向：移动端开发工程师】 · 【北京】 · 【到岗时间：随时 / 一个月内】
 
-📱 【18831107935】 · ✉️ 【charlotteplczy@gmail.com】 · 🔗 [【GitHub】](https://github.com/Charlottenpl) · 📝 [【个人博客】]() · 📍 【北京】
+📱 【18831107935】 · ✉️ 【charlotteplczy@gmail.com】 · 🔗 [【GitHub】](https://github.com/Charlottenpl) · 📝 [【个人博客】](https://me.cn.echopl.fun/) · 📍 【北京】
 
 ## 个人总结
 
