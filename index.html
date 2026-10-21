@@ -250,7 +250,7 @@
     dl.skills dd { margin-bottom: 6px; }
   }
 
-  /* 打印 / 导出 PDF：版式、字号、间距与网页一致，固定浅色，整体按比例缩放到 A4 宽度 */
+  /* 打印 / 导出 PDF：版式、字号、间距与网页一致，固定浅色，整体缩放 0.8 适配 A4（内容超过两页时再调小） */
   @page { size: A4; margin: 14mm 14mm; }
   @media print {
     :root:not([data-print]) {
@@ -265,9 +265,11 @@
       --chip-bg: #f1f3f6;
     }
     body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .resume { zoom: 0.85; max-width: none; margin: 0; padding: 0; border-radius: 0; box-shadow: none; }
+    .resume { zoom: 0.8; max-width: none; margin: 0; padding: 0; border-radius: 0; box-shadow: none; }
     .print-btn, .photo.empty { display: none; }
-    .hero, .entry, .project, dl.skills { break-inside: avoid; }
+    /* 项目允许跨页，但单条职责、段落不拆开，标题、标签和“职责：”不与下文分离 */
+    .hero, .entry, dl.skills, .points li, .project > p { break-inside: avoid; }
+    .project-head, .project .chips, .project .label { break-after: avoid; }
     h2 { break-after: avoid; }
   }
 </style>
@@ -333,6 +335,7 @@
     </article>
   </section>
 
+  <!-- 项目经历内容与 resume.md 保持一致，改内容时先改 resume.md 再同步到这里 -->
   <section>
     <h2>项目经历</h2>
 
@@ -341,12 +344,13 @@
         <h3>ZeusSDK</h3>
         <span class="tag company">公司项目</span>
       </div>
-      <ul class="chips" aria-label="技术栈"><li class="chip">Android</li><li class="chip">iOS</li><li class="chip">Unity</li><li class="chip">Cocos</li><li class="chip">小游戏</li></ul>
-      <p>游戏发行系统 SDK，可插拔设计，累计服务近千万用户，项目支持多平台接入。</p>
+      <ul class="chips" aria-label="技术栈"><li class="chip">KMP</li><li class="chip">Kotlin</li><li class="chip">Android</li><li class="chip">iOS</li><li class="chip">小游戏</li><li class="chip">Unity</li><li class="chip">Cocos</li></ul>
+      <p>面向海外发行的跨平台游戏 SDK，一套能力同时覆盖 Android、iOS、PC、小游戏及 Unity / Cocos 引擎接入，累计服务近千万用户。</p>
       <p class="label">职责：</p>
       <ul class="points">
-        <li>负责项目的整体开发与重构，逐步解决项目的稳定性、可观测性和接入效率。</li>
-        <li>主导新一代 SDK 重构：基于 KMM 重新设计跨端架构，项目重构为多模块设计。接入方按需集成，提高接入效率。</li>
+        <li>负责 SDK 整体架构的设计、开发与版本迭代，保障多端稳定交付。</li>
+        <li>跨平台开发：基于 KMP 设计跨端架构，将核心业务逻辑沉淀为共享模块。接入方按需集成，降低维护成本、提升接入效率。</li>
+        <li>AI 辅助研发：为仓库编写 AGENTS.md 和 Claude Code Skills（如状态码管理），借助 AI 完成编码、代码审查和文档编写，沉淀为团队可复用的实践。</li>
       </ul>
     </article>
 
