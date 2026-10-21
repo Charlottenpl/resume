@@ -1,1 +1,5 @@
 .DS_Store
+
+# 个人照片原图和导出的 PDF 只保留在本地
+photo.jpg
+*.pdf
