@@ -250,8 +250,8 @@
     dl.skills dd { margin-bottom: 6px; }
   }
 
-  /* 打印 / 导出 PDF：固定浅色，版式与网页一致，只缩小字号和间距，压进一张 A4 */
-  @page { size: A4; margin: 8mm 12mm; }
+  /* 打印 / 导出 PDF：版式、字号、间距与网页一致，固定浅色，整体按比例缩放到 A4 宽度 */
+  @page { size: A4; margin: 14mm 14mm; }
   @media print {
     :root:not([data-print]) {
       --bg: #fff;
@@ -264,42 +264,9 @@
       --accent-soft: #eef2fc;
       --chip-bg: #f1f3f6;
     }
-    body { font-size: 8.5pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .resume { max-width: none; margin: 0; padding: 0; border-radius: 0; box-shadow: none; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .resume { zoom: 0.85; max-width: none; margin: 0; padding: 0; border-radius: 0; box-shadow: none; }
     .print-btn, .photo.empty { display: none; }
-
-    /* 头部 */
-    .hero { padding-bottom: 8px; column-gap: 28px; }
-    .hero h1 { margin-bottom: 6px; font-size: 20pt; }
-    .info { gap: 2px 24px; font-size: 8.5pt; }
-    .photo { width: 84px; }
-
-    /* 分区与经历 */
-    section { margin-top: 9px; }
-    h2 { margin-bottom: 5px; font-size: 10pt; }
-    h3 { font-size: 10pt; }
-    .meta { font-size: 8pt; }
-    .sub { margin: 2px 0 4px; }
-    .points li { margin: 1px 0; }
-
-    /* 项目 */
-    .project { padding: 5px 0; }
-    .project:first-of-type { padding-top: 0; }
-    .tag { font-size: 7.5pt; line-height: 14px; padding: 0 6px; }
-    .chips { gap: 4px; }
-    .project .chips { margin: 3px 0; }
-    .chip { font-size: 7.5pt; line-height: 15px; padding: 0 6px; }
-    .chip-note { font-size: 8pt; line-height: 15px; }
-    .project .label { margin-top: 2px; font-size: 8pt; }
-    .project .duty { margin-top: 2px; }
-    .project .duty .label { margin: 0; }
-    .project .points { margin-top: 0; }
-    .project .points li { margin: 0; }
-
-    /* 技能 */
-    dl.skills { gap: 3px 12px; }
-    dl.skills dt { font-size: 8pt; }
-
     .hero, .entry, .project, dl.skills { break-inside: avoid; }
     h2 { break-after: avoid; }
   }
