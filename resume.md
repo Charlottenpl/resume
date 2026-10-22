@@ -54,7 +54,7 @@
 - 原生与引擎接入：Android、iOS 原生层提供具体能力，Unity、Cocos 作为引擎层封装与原生插件之间的通信桥接，配合游戏项目完成接入、联调与上线。
 - 发布与测试：负责 Maven / CocoaPods 发布和 ProGuard 混淆配置，保障版本兼容；为共享模块和对外接口编写单元测试。
 - UI 自动化测试体系：基于 Appium 和 Airtest 搭建配套 UI 自动化测试体系，覆盖 SDK 核心业务流程；通过 Jenkins 定时执行并自动生成报告，纳入版本发布流程。
-- AI 辅助研发：采用规格驱动开发，先写需求规格和验收标准，再交给 AI 实现，并通过代码审查和测试验证产出；为仓库编写 AGENTS.md 和 Claude Code Skills（如状态码管理），沉淀为团队可复用的实践。
+- AI 辅助研发：项目采用规格驱动开发，同时为仓库编写 AGENTS.md 和 Claude Code Skills，为团队沉淀可复用的实践。
 
 ### 【Photo Geopro】
 
