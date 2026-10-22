@@ -43,27 +43,18 @@
 
 ### 【ZeusSDK】
 
-`KMP` `Kotlin` `Android` `iOS` `小游戏` `Unity` `Cocos`
+`KMP` `Android` `iOS` `Unity` `Cocos` `小游戏` `Jenkins`
 
-面向海外发行的跨平台游戏 SDK，一套能力同时覆盖 Android、iOS、PC、小游戏及 Unity / Cocos 引擎接入，累计服务近千万用户。
-
-职责：
-
-- 负责 SDK 整体架构的设计、开发与版本迭代，保障多端稳定交付。
-- 跨平台开发：基于 KMP 设计跨端架构，将核心业务逻辑沉淀为共享模块。接入方按需集成，降低维护成本、提升接入效率。
-- AI 辅助研发：为仓库编写 AGENTS.md 和 Claude Code Skills（如状态码管理），借助 AI 完成编码、代码审查和文档编写，沉淀为团队可复用的实践。
-
-### 【AutoUI】
-
-`Python` `Appium` `Airtest` `Jenkins`
-
-UI 自动化测试项目，定时运行测试并生成测试报告，用于规范版本发布流程、提高线上稳定性。
+面向海外发行的跨平台游戏 SDK，提供账号体系、支付订阅、广告变现等核心能力，一套能力同时覆盖 Android、iOS、PC、小游戏及 Unity / Cocos 引擎接入，服务公司多款游戏、累计近千万用户。
 
 职责：
 
-- 调研选型：原生 Demo 使用 Appium，Unity / Cocos 引擎 Demo 使用 Airtest，覆盖 Android 和 iOS。
-- 编写核心流程用例，通过 Jenkins 定时执行并自动生成测试报告。
-- 自动化测试纳入版本发布流程与定时任务。
+- 架构设计：负责 SDK 整体架构的设计、开发与版本迭代，统一对外接口规范，保障多端稳定交付。
+- 跨平台开发：基于 KMP 设计跨端架构，将核心业务逻辑沉淀为共享模块，Android / iOS 各自实现平台能力。接入方按需集成，降低维护成本、提升接入效率。
+- 原生与引擎接入：使用 Kotlin 和 Swift / Objective-C 开发 Android、iOS 原生能力，封装 Unity（C#）、Cocos（TypeScript）与原生插件之间的通信桥接，配合游戏项目完成接入、联调与上线。
+- 发布与测试：负责 Maven / CocoaPods 发布和 ProGuard 混淆配置，保障版本兼容；为共享模块和对外接口编写单元测试。
+- UI 自动化：基于 Appium 和 Airtest 搭建配套 UI 自动化测试，覆盖 SDK 核心业务流程；通过 Jenkins 定时执行并自动生成报告，纳入版本发布流程。
+- AI 辅助研发：采用规格驱动开发，先写需求规格和验收标准，再交给 AI 实现，并通过代码审查和测试验证产出；为仓库编写 AGENTS.md 和 Claude Code Skills（如状态码管理），沉淀为团队可复用的实践。
 
 ### 【Photo Geopro】
 
@@ -108,5 +99,5 @@ UI 自动化测试项目，定时运行测试并生成测试报告，用于规�
 - **移动端**：Kotlin 协程、Jetpack Compose、Gradle / Maven 发布、ProGuard、SwiftUI
 - **跨端 / 引擎**：Kotlin Multiplatform、Unity、Cocos
 - **服务端 / Web**：Go（Gin）、PostgreSQL、Redis、Vue 3
-- **AI 工作流**：Claude Code、Codex，用于辅助开发、代码审查和文档编写
-- **工程实践**：Git、Docker、CI/CD（Jenkins）、单元测试
+- **AI 工作流**：Claude Code、Codex，用于规格驱动开发、辅助编码、代码审查和文档编写
+- **工程实践**：Git、Docker、CI/CD（Jenkins）、单元测试、UI 自动化（Appium / Airtest）
